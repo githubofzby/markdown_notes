@@ -71,7 +71,7 @@ $ git commit -m "提交信息"
 
 ```shell
 # C:\dell\.ssh中的id.rsa.pub文件
-$ ssh-keygen -t rsa -C "964218980@qq.com"
+$ ssh-keygen -t rsa -C "zby15035703149@outlook.com"
 
 #验证公钥
 $ ssh -T git@gitee.com
@@ -96,7 +96,6 @@ $ git remote -v
 ## 流程
 
 ```shell
-$ git init
 $ git add .
 $ git commit -m "提交信息"
 $ git remote add origin git@gitee.com:gitee_of_zby/markdown-notes.git
