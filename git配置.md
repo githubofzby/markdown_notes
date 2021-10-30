@@ -28,6 +28,8 @@ $ git config --global user.name "zby"
 $ git config --global user.email "zby15035703149@outlook.com"
 ```
 
+# git实现同步
+
 ## git创建项目及克隆
 
 ```shell
@@ -67,7 +69,7 @@ $ ssh-keygen -t rsa -C "964218980@qq.com"
 $ ssh -T git@gitee.com
 ```
 
-## 关联码云
+## 关联远程仓库
 
 ```sh
 $ git init
