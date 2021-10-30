@@ -2,7 +2,7 @@
 
 ## 查看配置
 
-```
+```shell
 # 查看所有git配置
 $ git config -l
 
@@ -22,7 +22,7 @@ $ git config --global --list;
 
 > 配置名称和邮箱
 
-```
+```shell
 $ git config --global user.name "zby"
 
 $ git config --global user.email "zby15035703149@outlook.com"
@@ -30,7 +30,7 @@ $ git config --global user.email "zby15035703149@outlook.com"
 
 ## git创建项目及克隆
 
-```
+```shell
 # 在当前目录新建一个代码库
 $ git init    #初始化
 
@@ -40,7 +40,7 @@ $ git clone [URL]
 
 ## git基本命令
 
-```
+```shell
 #初始化  创建.git文件
 $ git init
 
@@ -58,7 +58,7 @@ $ git commit -m "提交信息"
 
 > 实现免密登录
 
-```
+```shell
 # C:\dell\.ssh中的id.rsa.pub文件
 $ ssh-keygen -t rsa -C "zby15035703149@outlook.com"
 $ ssh-keygen -t rsa -C "964218980@qq.com"
@@ -69,7 +69,7 @@ $ ssh -T git@gitee.com
 
 ## 关联码云
 
-```
+```sh
 $ git init
 
 #本地仓库与gitee仓库关联
@@ -81,7 +81,7 @@ $ git remote -v
 
 ## 流程
 
-```
+```shell
 $ git init
 $ git add .
 $ git commit -m "提交信息"
