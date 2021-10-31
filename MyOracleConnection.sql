@@ -1,4 +1,4 @@
--- 新建表空间wsl001
+-- 新建表空间wsl
 create tablespace wsl001 datafile 'D:\wsl001.dbf' size 20m uniform size 128k;
 
 -- 创建school用户
