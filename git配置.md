@@ -28,6 +28,8 @@ $ git config --global user.name "zby"
 $ git config --global user.email "zby15035703149@outlook.com"
 ```
 
+---
+
 # git实现同步
 
 ## git创建项目及克隆
@@ -90,3 +92,4 @@ $ git commit -m "提交信息"
 $ git remote add origin git@gitee.com:gitee_of_zby/markdown-notes.git
 $ git push -u origin master
 ```
+
