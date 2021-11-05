@@ -93,4 +93,4 @@ $ git remote add origin git@gitee.com:gitee_of_zby/markdown-notes.git
 $ git push -u origin master
 ```
 
-
+![image-20211105144512920](../markdown_notes/notes/git配置_md_files/image-20211105144512920.png)
