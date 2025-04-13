@@ -1,96 +1,117 @@
-# git配置
+# 审稿意见回复信
 
-## 查看配置
+尊敬的编辑与审稿人：
 
-```shell
-# 查看所有git配置
-$ git config -l
-
-# 查看系统git配置
-$ git config --system --list;
-
-#查看用户git配置
-$ git config --global --list;
-```
-
-## git相关的配置文件
-
-- Git\etc\gitconfig -- 系统级
-- C:\Users\dell(用户名)\ .gitconfig -- 用户级
-
-## git必要配置
-
-> 配置名称和邮箱
-
-```shell
-$ git config --global user.name "zby"
-
-$ git config --global user.email "zby15035703149@outlook.com"
-```
+感谢您对我们论文 **《[论文标题]》** 的评审和宝贵意见。我们非常感谢您对本文工作的肯定与建议，尤其是在识别我们工作的创新性和实验有效性方面。针对您提出的问题，我们已进行了认真分析与修正。以下为我们对审稿意见的逐条回复：
 
 ---
 
-# git实现同步
+## 一、优点（感谢语）
 
-## git创建项目及克隆
+我们非常感谢您对本文以下优点的认可：
 
-```shell
-# 在当前目录新建一个代码库
-$ git init    #初始化
+- 对于大规模图训练的挑战提出了具有实际意义的解决方案；
+- FullFormer 架构在稀疏矩阵计算、内存优化和简化注意力机制方面的创新；
+- 实验结果在准确性、速度和资源使用方面全面优于现有方法，尤其在超大规模图（如 Amazon2M）中表现出色；
+- 为图 Transformer 的进一步发展提供了新思路与可能。
 
-#克隆一个gitee/github项目
-$ git clone [URL]
-```
+---
 
-## git基本命令
+## 二、问题与修改建议反馈
 
-```shell
-#初始化  创建.git文件
-$ git init
+### 1. 语言和表达
 
-#查看文件状态 Untracked 未跟踪，没有进入暂存区 
-$ git status 
+**审稿意见：**
 
-#添加所有文件到暂存区
-$ git add .
+- 存在部分表达不够清晰，建议通篇进行语法和流畅性校对；
+- 示例：引言与摘要中的句式改写建议。
 
-#提交暂存区的文件到本地仓库
-$ git commit -m "提交信息"
-```
+**我们的回应与修改：**
 
-## 本机绑定SSH公钥
+- 我们已通读全文，并借助专业语言校对工具对语言表达进行了逐句修改；
+- 所有建议的句子已按审稿人意见进行了润色和重写，例如：
+  - 引言修改为：“...traditional graph neural network (GNN) algorithms[6-7] face challenges in effectively capturing and utilizing these structural features.”
+  - 摘要修改为：“...can efficiently constrain GPU memory usage.”
 
-> 实现免密登录
+---
 
-```shell
-# C:\dell\.ssh中的id.rsa.pub文件
-$ ssh-keygen -t rsa -C "zby15035703149@outlook.com"
-$ ssh-keygen -t rsa -C "964218980@qq.com"
+### 2. 背景介绍
 
-#验证公钥
-$ ssh -T git@gitee.com
-```
+**审稿意见：**
 
-## 关联远程仓库
+- 引言中对已有全图训练技术的讨论不够充分；
+- 建议补充对分布式系统和稀疏性相关工作的比较分析。
 
-```sh
-$ git init
+**我们的回应与修改：**
 
-#本地仓库与gitee仓库关联
-$ git remote add origin git@gitee.com:gitee_of_zby/markdown-notes.git
+- 我们已在引言部分新增一段内容，补充并对比了以下代表性方法：
+  - 分布式图训练方案（如 DistDGL、PaGraph）；
+  - 稀疏注意力机制（如 GraphSAINT、Cluster-GCN）；
+- 通过对比分析，我们进一步突出了 FullFormer 在单卡训练效率和扩展性方面的优势。
 
-#查看远程库信息:
-$ git remote -v 
-```
+---
 
-## 流程
+### 3. 公式与技术细节
 
-```shell
-$ git init
-$ git add .
-$ git commit -m "提交信息"
-$ git remote add origin git@gitee.com:gitee_of_zby/markdown-notes.git
-$ git push -u origin master
-```
+**审稿意见：**
 
-![image-20211105144512920](../markdown_notes/notes/git配置_md_files/image-20211105144512920.png)
+- 第 3.1 节关于 FlashSparseMatmul 的技术实现不够具体；
+- 公式（1）缺乏与 FullFormer 架构的对应说明。
+
+**我们的回应与修改：**
+
+- 已在第 3.1 节补充了 FlashSpmm 实现的技术细节，包括：
+  - 使用 Triton 实现的 block-wise memory access 优化；
+  - 与 CUDA kernel 手工实现相比的性能差异与可维护性优势；
+- 对公式（1）进行了详细解释，并指出该公式在 FullFormer 中如何通过简化线性注意力进行具体应用。
+
+---
+
+### 4. 图像展示
+
+**审稿意见：**
+
+- Figure 3 和 Figure 6 的标签与坐标轴不够清晰；
+- 图表视觉上稍显拥挤。
+
+**我们的回应与修改：**
+
+- 我们已对所有图像进行了重新绘制，提升分辨率并优化了布局；
+- 增加了更明确的坐标轴标签、图例说明和标注，以增强可读性；
+- 所有更新图表均已体现在修订稿中。
+
+---
+
+### 5. 实验和分析
+
+**审稿意见：**
+
+- 缺少对“简化线性注意力机制”提升准确性的理论解释；
+- 建议补充更多硬件和大图数据集下的扩展实验。
+
+**我们的回应与修改：**
+
+- 我们在第 4.3 节新增了一段理论分析，结合 attention dropout 与稀疏特征的结合对准确性提升进行了解释；
+- 补充了在 A100（80GB）与 RTX 4090（24GB）上的性能测试，并新增了一个包含 10M 节点的合成图数据集实验，验证方法的可扩展性。
+
+---
+
+### 6. 结论强化
+
+**审稿意见：**
+
+- 结论部分可加入实际应用场景，增强影响力；
+- 建议以表格形式对比 FullFormer 与其他方法的创新点。
+
+**我们的回应与修改：**
+
+- 我们在结论部分新增了应用场景的讨论，包括社交网络分析和大规模推荐系统；
+- 增加了一个对比表格，总结 FullFormer、NodeFormer、SGFormer 和 DIFFormer 的设计特点、计算复杂度、适用数据规模等关键信息。
+
+---
+
+## 三、结语
+
+再次感谢审稿人对我们工作的认可和建设性意见。我们已根据所有建议进行了全面的修改，并相信修订后的稿件在表达、理论深度与实验完整性方面都有显著提升。期待您对我们修订工作的进一步审阅！
+
+祝好！
